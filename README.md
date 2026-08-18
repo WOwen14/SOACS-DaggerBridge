@@ -1,5 +1,9 @@
 # SOACS DaggerBridge
 
+<p align="center">
+  <img src="Assets/GitHub-Logo.jpg" alt="SOACS DaggerBridge" width="400">
+</p>
+
 **Tactical Messaging Integration | Cursor-on-Target | Mission Software**
 
 > **Production application — public portfolio repository. Source code and deployment artifacts are maintained privately.**
