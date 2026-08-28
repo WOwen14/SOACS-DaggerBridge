@@ -83,7 +83,7 @@ Multiple IRC servers can be configured and monitored independently, with room me
 Rooms are associated with their configured IRC servers and can be individually enabled or disabled for monitoring while DaggerBridge remains running.
 
 <p align="center">
-  <img src="Assets/Screenshots/02-irs-rooms.png" alt="DaggerBridge v1.0 IRC room monitoring" width="1000">
+  <img src="Assets/Screenshots/02-irc-rooms.png" alt="DaggerBridge v1.0 IRC room monitoring" width="1000">
 </p>
 
 ### ChatSurfer connector
