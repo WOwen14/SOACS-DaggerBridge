@@ -22,8 +22,9 @@ This repository exists to document the **engineering, capabilities, architecture
 | Current production release | v1.0 |
 | Internal fielded baseline | RC6 Alpha2 / Hotfix 17 |
 | Production status | **Released / Production** |
-| Current development track | **Geo-Fencing expansion — active test development** |
-| Latest documented test-source revision | **2026.08.27 RevAD** |
+| Planned next release | **v1.1 — Geo-Fencing capability expansion** |
+| v1.1 status | **Active test and validation** |
+| Latest documented v1.1 test-source revision | **2026.08.27 RevAD** |
 | Platform | Windows |
 | UI | WPF |
 | Language | C# |
@@ -32,7 +33,7 @@ This repository exists to document the **engineering, capabilities, architecture
 | External package dependency | None required |
 | Source availability | **Private** |
 
-The released v1.0 / RC6 Alpha2 / Hotfix 17 baseline remains the production release. Geo-Fencing capabilities described below are part of the current test/development track and are not being represented here as a new production release until validation and formal promotion are complete.
+The released v1.0 / RC6 Alpha2 / Hotfix 17 baseline remains the production release. **Geo-Fencing is planned for DaggerBridge v1.1** and remains in active test/development until validation and formal release promotion are complete.
 
 ## What DaggerBridge does
 
@@ -55,7 +56,7 @@ Core capabilities include:
 - Raw messaging and CoT troubleshooting views
 - Controlled shutdown of network and background processes
 
-Current Geo-Fencing development adds operator-defined geographic filtering, reusable and one-time operating areas, combined overview mapping, multi-area support, and direct boundary editing while retaining operator control over when and where message matches become eligible for CoT/KMZ output.
+The planned **v1.1 Geo-Fencing release** adds operator-defined geographic filtering, reusable and one-time operating areas, combined overview mapping, multi-area support, direct boundary editing, and fence-to-fence snapping while retaining operator control over when and where message matches become eligible for CoT/KMZ output.
 
 ## High-level workflow
 
@@ -94,11 +95,11 @@ DaggerBridge supports the coordinate-processing workflow required to turn messag
 
 The application separates message detection from geospatial output so that invalid or incomplete coordinate data is not blindly treated as a valid location.
 
-## Geo-Fencing — current development track
+## Geo-Fencing — planned v1.1 release
 
 The Geo-Fencing expansion is designed to let operators control **where** a keyword match is operationally relevant, not just whether the text itself matched.
 
-Current test-source capabilities include:
+Current v1.1 test-source capabilities include:
 
 - Reusable saved Geo-Fences that can be assigned to multiple keywords
 - Keyword-only / one-time Geo-Fences for temporary use
@@ -121,11 +122,11 @@ Current test-source capabilities include:
 - Distinct **Popup All** and **Popup In Geo-Fence** behavior
 - Geo-Fence PASS/REJECT logging for operator troubleshooting
 
-The current development track also includes out-of-the-box SOC reference starting areas. These are intentionally editable **reference templates**, not authoritative command-boundary products, and are never automatically assigned to keywords.
+The v1.1 development track also includes out-of-the-box SOC reference starting areas. These are intentionally editable **reference templates**, not authoritative command-boundary products, and are never automatically assigned to keywords.
 
 ### Geo-Fence alert behavior
 
-The current design separates general keyword alerting from geography-specific alerting:
+The v1.1 design separates general keyword alerting from geography-specific alerting:
 
 - **Popup All** — alerts on every enabled keyword match.
 - **Popup In Geo-Fence** — alerts only after a valid coordinate passes an enabled assigned Geo-Fence.
@@ -135,11 +136,11 @@ This lets the operator choose between broad awareness and location-restricted al
 
 ### Map and geometry integrity
 
-Geo-Fence geometry is stored geographically rather than as screen-space shapes. The current implementation reprojects saved WGS-84 geometry whenever the map pans or zooms, handles the ±180-degree longitude seam, renders radius areas as geodesic rings, and keeps Overview navigation read-only unless the operator intentionally enters an edit workflow.
+Geo-Fence geometry is stored geographically rather than as screen-space shapes. Current v1.1 test builds reproject saved WGS-84 geometry whenever the map pans or zooms, handle the ±180-degree longitude seam, render radius areas as geodesic rings, and keep Overview navigation read-only unless the operator intentionally enters an edit workflow.
 
 This prevents map interaction from stretching or rewriting saved fence geometry.
 
-See [Geo-Fencing Development Overview](GEOFENCING.md) for a more detailed capability summary.
+See [DaggerBridge v1.1 Geo-Fencing Capability Overview](GEOFENCING.md) for a more detailed capability summary.
 
 ## Operator-focused design
 
@@ -153,7 +154,7 @@ The UI was developed around direct operational use rather than a generic messagi
 - Active configuration profile
 - Raw message traffic
 - CoT troubleshooting output
-- Geo-Fence assignment and pass/reject state during the current development track
+- Geo-Fence assignment and pass/reject state in the planned v1.1 workflow
 
 A compact summary view provides at-a-glance status while allowing the full application to remain available for detailed configuration and troubleshooting.
 
@@ -161,7 +162,7 @@ A compact summary view provides at-a-glance status while allowing the full appli
 
 DaggerBridge was developed iteratively from real workflow requirements. Features were placed in front of users early, issues were identified from actual use, and corrections were incorporated directly into subsequent builds.
 
-Examples of production hardening and current development work include:
+Examples of production hardening and current v1.1 development work include:
 
 - Improving IRC server/room handling
 - Handling nickname reuse and connection-state issues
@@ -177,7 +178,7 @@ Examples of production hardening and current development work include:
 - Adding visible-neighbor boundary snapping during Overview editing
 - Correcting world-wrap and pan/zoom geometry behavior
 
-The production source baseline and active development source are maintained under controlled version management in a private repository.
+The production source baseline and active v1.1 development source are maintained under controlled version management in a private repository.
 
 ## Security and source availability
 
@@ -215,6 +216,13 @@ For recruiters, engineers, and technical leaders, this repository demonstrates e
 - Offline / disconnected software engineering
 - Operator-driven requirements development
 - Production hardening and field support
+
+## Release path
+
+**Current production:** DaggerBridge v1.0 / RC6 Alpha2 / Hotfix 17  
+**Planned next release:** DaggerBridge v1.1 — Geo-Fencing
+
+The v1.1 Geo-Fencing capability will remain identified as test/development work until the build completes validation and is intentionally promoted to production.
 
 ## Development ownership
 
