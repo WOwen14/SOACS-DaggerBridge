@@ -58,6 +58,66 @@ Core capabilities include:
 
 The planned **v1.1 Geo-Fencing release** adds operator-defined geographic filtering, reusable and one-time operating areas, combined overview mapping, multi-area support, direct boundary editing, and fence-to-fence snapping while retaining operator control over when and where message matches become eligible for CoT/KMZ output.
 
+## Released v1.0 application screenshots
+
+The screenshots below show the **released DaggerBridge v1.0 interface** using sanitized/example configuration data. They are intentionally separated from the v1.1 Geo-Fencing development material later in this repository.
+
+### Operator dashboard
+
+The compact dashboard provides an at-a-glance operational summary of messaging connectivity, monitored words, generated CoT messages, and pending acknowledgments without requiring the operator to remain in the full configuration interface.
+
+<p align="center">
+  <img src="Assets/Screenshots/06-dashboard.png" alt="DaggerBridge v1.0 operator dashboard" width="700">
+</p>
+
+### IRC server management
+
+Multiple IRC servers can be configured and monitored independently, with room membership, connection state, TLS selection, startup lookback, and per-server controls visible from one screen.
+
+<p align="center">
+  <img src="Assets/Screenshots/01-irc-servers.png" alt="DaggerBridge v1.0 IRC server management" width="1000">
+</p>
+
+### IRC room monitoring
+
+Rooms are associated with their configured IRC servers and can be individually enabled or disabled for monitoring while DaggerBridge remains running.
+
+<p align="center">
+  <img src="Assets/Screenshots/02-irs-rooms.png" alt="DaggerBridge v1.0 IRC room monitoring" width="1000">
+</p>
+
+### ChatSurfer connector
+
+The ChatSurfer interface provides connector configuration, CAC/Windows-token authentication options, polling controls, domain/room source management, and source-level status visibility.
+
+<p align="center">
+  <img src="Assets/Screenshots/03-chatsurfer.png" alt="DaggerBridge v1.0 ChatSurfer connector" width="1000">
+</p>
+
+### Keyword and CoT rules
+
+Operators can enable or disable monitored keywords, require coordinates, control popup behavior, select CoT types and icons, and configure stale times from the keyword rule grid.
+
+<p align="center">
+  <img src="Assets/Screenshots/04-keywords.png" alt="DaggerBridge v1.0 keyword and CoT rule configuration" width="1000">
+</p>
+
+### CoT and KMZ outputs
+
+DaggerBridge supports multiple enabled CoT destinations using UDP or TCP while also maintaining KMZ/KML output. The released interface includes explicit output testing and guarded controls around automated reply behavior.
+
+<p align="center">
+  <img src="Assets/Screenshots/05-cot-kmz.png" alt="DaggerBridge v1.0 CoT and KMZ output configuration" width="1000">
+</p>
+
+### About, documentation, and maintenance
+
+The released About page identifies the v1.0 build and framework while providing direct access to operator documentation, troubleshooting material, configuration backup/restore tools, and maintenance folders.
+
+<p align="center">
+  <img src="Assets/Screenshots/07-about-v1.0.png" alt="DaggerBridge v1.0 About and maintenance page" width="1000">
+</p>
+
 ## High-level workflow
 
 ```mermaid
