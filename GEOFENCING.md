@@ -1,12 +1,12 @@
 # SOACS DaggerBridge v1.1 — Geo-Fencing Capability Overview
 
-> **Planned release:** DaggerBridge v1.1  
-> **Current status:** Active test and validation  
-> **Current production release:** v1.0 / RC6 Alpha2 / Hotfix 17
+> **Current production release:** DaggerBridge v1.1  
+> **Release status:** Released / Production  
+> **Major v1.1 capability:** Geo-Fencing
 
-Geo-Fencing is the major capability expansion planned for **SOACS DaggerBridge v1.1**. It adds geographic filtering and map-based operating-area management to the existing keyword, coordinate, alert, CoT, and KMZ workflow.
+Geo-Fencing is a released capability in **SOACS DaggerBridge v1.1**. It adds geographic filtering and map-based operating-area management to the existing keyword, coordinate, alert, CoT, and KMZ workflow.
 
-The objective is to let an operator define **where** a message is operationally relevant without changing the underlying keyword logic. A keyword can remain globally monitored while its geospatial output and/or popup behavior is constrained to one or more operator-defined areas.
+The capability lets an operator define **where** a message is operationally relevant without changing the underlying keyword logic. A keyword can remain globally monitored while its geospatial output and/or popup behavior is constrained to one or more operator-defined areas.
 
 ## Operational concept
 
@@ -28,7 +28,7 @@ Geo-Fencing does not replace the existing DaggerBridge keyword and coordinate wo
 
 ### Radius
 
-Radius fences use a geographic center plus distance. Current test builds support center entry or map selection and common distance units including nautical miles, statute miles, kilometers, and meters.
+Radius fences use a geographic center plus distance. Operators can define the center by coordinate entry or map selection and use common distance units including nautical miles, statute miles, kilometers, and meters.
 
 Radius geometry is stored geographically and rendered as a geodesic ring rather than a screen-space ellipse so map pan and zoom do not distort the saved area.
 
@@ -42,7 +42,7 @@ A single saved Geo-Fence can contain multiple disconnected polygon components. T
 
 ## Reusable and keyword-only areas
 
-DaggerBridge v1.1 is planned to support two complementary workflows:
+DaggerBridge v1.1 supports two complementary workflows:
 
 - **Reusable saved Geo-Fences** — create an area once and assign it to multiple keywords.
 - **Keyword-only / one-time Geo-Fences** — create a temporary area that belongs only to one keyword and is not added to the shared library.
@@ -59,15 +59,15 @@ An enabled Geo-Fence with no valid assigned or keyword-only areas fails closed.
 
 ## Geo-Fence library
 
-The Geo-Fences workspace provides a master library for saved operating areas. Planned v1.1 workflows include:
+The Geo-Fences workspace provides a master library for saved operating areas. v1.1 supports:
 
-- Create and name reusable fences
-- Edit existing fences
-- Rename shared fences while preserving keyword references
-- Delete saved fences and clean up their assignments
-- Duplicate an existing fence and edit the copy
-- Identify whether a fence is user-created or supplied as an out-of-the-box reference
-- Reset supplied reference fences to their original starting geometry
+- Creating and naming reusable fences
+- Editing existing fences
+- Renaming shared fences while preserving keyword references
+- Deleting saved fences and cleaning up their assignments
+- Duplicating an existing fence and editing the copy
+- Identifying whether a fence is user-created or supplied as an out-of-the-box reference
+- Resetting supplied reference fences to their original starting geometry
 
 Editing a shared saved fence intentionally changes the geometry used by every keyword assigned to that fence, so the application warns the operator before shared edits.
 
@@ -75,7 +75,7 @@ Editing a shared saved fence intentionally changes the geometry used by every ke
 
 The combined **Geo-Fence Overview** provides a single operating-area picture across active fences.
 
-Current test-build capabilities include:
+Released v1.1 capabilities include:
 
 - Distinct colors for visible fences
 - Fence names drawn on the map
@@ -93,7 +93,7 @@ Normal Overview interaction remains read-only until the operator intentionally e
 
 ## Boundary editing and snapping
 
-The v1.1 development track includes direct geometry adjustment tools:
+v1.1 includes direct geometry adjustment tools:
 
 - Draggable polygon vertices
 - Midpoint insertion handles
@@ -105,7 +105,7 @@ The v1.1 development track includes direct geometry adjustment tools:
 - Radius center and radius handles
 - **Snap to Fences** for aligning edited vertices or midpoints to nearby visible fence edges
 
-This is intended to make adjacent operating areas easier to maintain without requiring repeated manual coordinate entry.
+These controls make adjacent operating areas easier to maintain without repeated manual coordinate entry.
 
 ## Offline map interaction
 
@@ -118,13 +118,13 @@ Normal map interaction is:
 - **Double-click in Radius mode:** select center
 - **Draw Area mode:** trace polygon geometry
 
-The redundant PAN MAP button was removed because click-drag is the permanent normal pan behavior.
+Click-drag is the permanent normal pan behavior; a separate PAN MAP button is not required.
 
 ## Map and geometry integrity
 
-Current test builds reproject saved WGS-84 geometry on map pan and zoom instead of stretching screen-space shapes.
+DaggerBridge v1.1 reprojects saved WGS-84 geometry on map pan and zoom instead of stretching screen-space shapes.
 
-Development corrections include:
+The released implementation includes:
 
 - Longitude wrapping across the ±180-degree seam
 - Prevention of world-spanning polygon line artifacts
@@ -133,11 +133,11 @@ Development corrections include:
 - Detection of impossible/corrupt radius values rather than silently clamping them
 - Read-only Overview navigation outside explicit editing
 
-These controls are intended to ensure that moving or zooming the map never changes the underlying saved Geo-Fence geometry.
+Moving or zooming the map does not change the underlying saved Geo-Fence geometry.
 
 ## Popup behavior
 
-The planned v1.1 alert model separates broad keyword awareness from geography-specific alerting:
+v1.1 separates broad keyword awareness from geography-specific alerting:
 
 - **Popup All** — alert on every enabled keyword match.
 - **Popup In Geo-Fence** — alert only when a valid coordinate passes an enabled assigned Geo-Fence.
@@ -151,7 +151,7 @@ The compact DaggerBridge Summary View includes a read-only world thumbnail showi
 
 ## Out-of-the-box reference fences
 
-The development track includes operator-adjustable SOC reference starting areas. They are intended as editable starting templates, not authoritative command-boundary products.
+v1.1 includes operator-adjustable SOC reference starting areas. They are intended as editable starting templates, not authoritative command-boundary products.
 
 Important behavior:
 
@@ -164,7 +164,7 @@ Operational/customer-specific boundary data is not published in this public repo
 
 ## Configuration and portability
 
-Geo-Fence definitions and assignments are designed to travel with DaggerBridge configuration profiles. Current development includes import-preview awareness for saved reusable areas, keyword-only areas, assignments, and Geo-Fence-enabled keywords.
+Geo-Fence definitions and assignments travel with DaggerBridge configuration profiles. Import-preview awareness includes saved reusable areas, keyword-only areas, assignments, and Geo-Fence-enabled keywords.
 
 This allows a configuration package to describe not only message rules but also the geographic areas associated with those rules.
 
@@ -174,18 +174,13 @@ DaggerBridge records Geo-Fence pass/reject decisions so the operator can determi
 
 The design emphasizes visible operator state rather than hidden automation.
 
-## Release path
+## Release status
 
-Geo-Fencing is planned for **DaggerBridge v1.1**. Until testing and release validation are complete:
+**DaggerBridge v1.1 is the current released production version.** Geo-Fencing is part of that production capability set, not a preview or test-only feature.
 
-- v1.0 remains the current production release.
-- Geo-Fencing remains a test/development capability.
-- Current test-source revisions are not production releases.
-- The private source repository remains the controlled location for implementation and test artifacts.
-
-Once v1.1 completes validation and is intentionally promoted, the public project status and release documentation will be updated accordingly.
+The private source repository remains the controlled location for implementation, maintenance, test artifacts, and future development.
 
 ---
 
 **SOACS DaggerBridge v1.1**  
-**Geo-Fencing — planned release capability**
+**Geo-Fencing — Released Production Capability**
